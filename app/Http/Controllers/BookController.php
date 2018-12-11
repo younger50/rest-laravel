@@ -28,12 +28,18 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // auth user check
+        $user = $request->user();
+        if(!$user){
+            return  response()->json(['error' => 'No user'], 401);
+        }
+        // create book
         $book = Book::create([
-            'user_id' => $request->user_id,
+            'user_id' => $user->id,
             'title' => $request->title,
             'description' => $request->description,
         ]);
+        //
         return new BookResource($book);
     }
 
@@ -56,9 +62,16 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Book $book)
     {
+        // check if currently authenticated user is the owner of the book
+        if($request->user()->id !== $book->user_id){
+            return response()->json(['error' => 'It\'s not your booking'], 403);
+        }
+        // update book
+        $book->update($request->only(['title', 'description']));
         //
+        return new BookResource($book);
     }
 
     /**
@@ -67,8 +80,12 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, Book $book)
     {
+        // check user
+        // delete book
+        $book->delete();
         //
+        return response()->json(null, 204);
     }
 }
