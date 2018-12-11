@@ -63,3 +63,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 https://blog.pusher.com/build-rest-api-laravel-api-resources/
 ### Official reference
 https://laravel.com/docs/5.5/
+
+### Implementation note
+* test API endpoint using Postman
