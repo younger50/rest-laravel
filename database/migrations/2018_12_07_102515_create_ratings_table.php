@@ -17,7 +17,7 @@ class CreateRatingsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->unsignedInteger('user_id');
-            $table->unsignedInteger('booking_id');
+            $table->unsignedInteger('book_id');
             $table->unsignedInteger('rating');
         });
     }

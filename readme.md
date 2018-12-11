@@ -66,3 +66,4 @@ https://laravel.com/docs/5.5/
 
 ### Implementation note
 * test API endpoint using Postman
+* create BookController with `--resource`
