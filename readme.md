@@ -65,5 +65,6 @@ https://blog.pusher.com/build-rest-api-laravel-api-resources/
 https://laravel.com/docs/5.5/
 
 ### Implementation note
-* test API endpoint using Postman
+* test API endpoint using Postman: collection and evnironment export to `test/postman`
 * create BookController with `--resource`
+* add auth exception handler
