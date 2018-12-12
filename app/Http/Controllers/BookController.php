@@ -10,6 +10,10 @@ use App\Http\Resources\BookResource;
 
 class BookController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api')->except(['index', 'show']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -28,11 +32,6 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        // auth user check
-        $user = $request->user();
-        if(!$user){
-            return  response()->json(['error' => 'No user'], 401);
-        }
         // create book
         $book = Book::create([
             'user_id' => $user->id,
