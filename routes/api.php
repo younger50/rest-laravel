@@ -24,4 +24,4 @@ Route::post('login', 'AuthController@login');
 
 // resource
 Route::apiResource('books', 'BookController');
-// Route::post('books/{book}/ratings', 'RatingController@store');
+Route::post('books/{book}/ratings', 'RatingController@store');
