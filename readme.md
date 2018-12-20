@@ -57,9 +57,23 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-# Develop note
+# Project note
 
-## Main reference
+## Server
+* apache2 + mysql for ubuntu/linux
+* MAMP for PC/Mac
+* php >= 7.0
+* composer ~ 1.7.0
+
+## Setup
+* copy .env.example to .env
+* ```composer install```
+* ```php artisan key:generate```
+* ```php artisan jwt:secret```
+* set DB_... in .env
+* ```php artisan migrate```
+
+### Main reference
 https://blog.pusher.com/build-rest-api-laravel-api-resources/
 ### Official reference
 https://laravel.com/docs/5.5/
